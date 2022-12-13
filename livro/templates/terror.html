@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block 'conteudo' %} 
+<br>
+<div class="container">
+    <div class="row">
+        {% for livro in terror %}
+            <div class="col-md">
+                <div class="card" style="width: 18rem;">
+                   
+                    <div class="card-body">
+                      {% if livro.img %}
+                        <img width="100%" src="{{livro.img.url}}">
+                      {% endif %}
+                      <h5 class="card-title">{{livro.titulo}}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">{{livro.autor}}</h6>
+                      <p class="card-text">{{livro.resumo}}</p>
+                      {% if livro.pdf %}
+                            <a href="{{livro.pdf.url}}" class="btn btn-primary" download="">Baixar</a>
+                      {% endif %}
+                    </div>
+                </div>
+                <br>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
